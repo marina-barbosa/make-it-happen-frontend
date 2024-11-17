@@ -4,15 +4,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { LucideAngularModule, Search } from 'lucide-angular';
+import { SearchInputComponent } from './components/search-input/search-input.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
+    HomePageComponent,
+    SearchInputComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LucideAngularModule.pick({ Search }),
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
