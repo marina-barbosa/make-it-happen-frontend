@@ -1,9 +1,38 @@
-<main>
-  <div class="mx-auto w-full max-w-[1200px] border flex flex-col px-8 py-3">
-    <h1 class="text-3xl ">Happiness comes from your action</h1>
-    <p>Be a part of the breakthroug and make someone's dream come true.</p>
-    <button class="btn btn-sm btn-accent max-w-40">Comece seu projeto</button>
-    <app-card></app-card>
+<main class="">
+  <div class="bg-cover bg-center bg-no-repeat w-screen h-96 fixed top-0 left-0 -z-10"
+    style="background-image: url('../../../assets/gif_floresta.gif');">
+  </div>
+
+  <div class="w-full flex flex-col">
+    <section id="hero" class="mx-auto w-full max-w-[1200px] min-h-[300px]flex flex-col space-y-8 p-8 text-[#F2F3F4]">
+      <h1 class="text-3xl font-audiowide mx-auto">Happiness comes from your action</h1>
+      <p class="mx-auto">Be a part of the breakthroug and make someone's dream come true.</p>
+      <div class="flex gap-5 mx-auto">
+        <button class="btn btn-sm md:btn-md btn-accent max-w-40">Conheça o projeto</button>
+        <button class="btn btn-sm md:btn-md btn-accent max-w-40">Comece seu projeto</button>
+      </div>
+    </section>
+    <section class=" bg-[#F2F3F4]">
+      <div class="mx-auto w-full max-w-[1200px]">
+        <select class="select select-bordered w-full max-w-xs custom-select">
+          <option disabled selected>Who shot first?</option>
+          <option>Han Solo</option>
+          <option>Greedo</option>
+        </select>
+        <div id="card-grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+          <app-card></app-card>
+        </div>
+      </div>
+    </section>
 
   </div>
 </main>

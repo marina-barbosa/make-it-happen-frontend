@@ -10,7 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { LucideAngularModule, Search } from 'lucide-angular';
+import { LucideAngularModule, Search, Tag } from 'lucide-angular';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -36,7 +36,7 @@ import { AuthLayoutComponent } from './components/auth-layout/auth-layout.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LucideAngularModule.pick({ Search }),
+    LucideAngularModule.pick({ Search, Tag }),
     CommonModule,
     FormsModule
   ],

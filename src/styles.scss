@@ -5,9 +5,16 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Autowide', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   transition: all 0.3s ease-in-out;
   margin: 0;
   padding: 0;
 }
+
+/* Estilo para as opções do select */
+.custom-select option:hover {
+  background-color: #f97316; /* Laranja */
+  color: white; /* Cor do texto ao passar o mouse */
+}
+
 
