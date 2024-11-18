@@ -15,6 +15,8 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { CardComponent } from './components/card/card.component';
     HomePageComponent,
     SearchInputComponent,
     CardComponent,
+    LayoutComponent,
+    AuthLayoutComponent,
   ],
   imports: [
     BrowserModule,
