@@ -7,28 +7,28 @@ import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, C
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormLoginComponent } from './components/form-login/form-login.component';
-import { LoginComponent } from './components/login/login.component';
-import { FormRegisterComponent } from './components/form-register/form-register.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { SearchInputComponent } from './components/search-input/search-input.component';
+import { FormLoginComponent } from './components/auth/form-login/form-login.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { FormRegisterComponent } from './components/auth/form-register/form-register.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
+import { HomePageComponent } from './components/home/home-page/home-page.component';
+import { SearchInputComponent } from './components/home/search-input/search-input.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CardComponent } from './components/card/card.component';
+import { CardComponent } from './components/home/card/card.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
-import { ReceiptComponent } from './components/receipt/receipt.component';
-import { CampaignStatusComponent } from './components/campaign-status/campaign-status.component';
-import { CampaignDetailsComponent } from './components/campaign-details/campaign-details.component';
-import { CreatorProfileComponent } from './components/creator-profile/creator-profile.component';
-import { CampaignFormComponent } from './components/campaign-form/campaign-form.component';
-import { UserPageComponent } from './components/user-page/user-page.component';
-import { CampaignPageComponent } from './components/campaign-page/campaign-page.component';
-import { CreateCampaignPageComponent } from './components/create-campaign-page/create-campaign-page.component';
-import { CampaignTitleComponent } from './components/campaign-title/campaign-title.component';
+import { AuthLayoutComponent } from './components/auth/auth-layout/auth-layout.component';
+import { ReceiptComponent } from './components/user/receipt/receipt.component';
+import { CampaignStatusComponent } from './components/campaign/campaign-status/campaign-status.component';
+import { CampaignDetailsComponent } from './components/campaign/campaign-details/campaign-details.component';
+import { CreatorProfileComponent } from './components/campaign/creator-profile/creator-profile.component';
+import { CampaignFormComponent } from './components/form-create/campaign-form/campaign-form.component';
+import { UserPageComponent } from './components/user/user-page/user-page.component';
+import { CampaignPageComponent } from './components/campaign/campaign-page/campaign-page.component';
+import { CreateCampaignPageComponent } from './components/form-create/create-campaign-page/create-campaign-page.component';
+import { CampaignTitleComponent } from './components/campaign/campaign-title/campaign-title.component';
 
 @NgModule({
   declarations: [

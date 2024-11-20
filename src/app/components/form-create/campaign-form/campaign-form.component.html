@@ -1,0 +1,176 @@
+<div class="min-h-screen bg-gray-50 py-8 px-4">
+  <div class="max-w-2xl mx-auto">
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title text-2xl mb-6">Criar Nova Campanha</h2>
+        
+        <form (ngSubmit)="onSubmit()" class="space-y-6">
+          <!-- Name Field -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Nome da Campanha</span>
+            </label>
+            <input 
+              type="text" 
+              formControlName="name"
+              placeholder="Digite o nome da sua campanha" 
+              class="input input-bordered w-full" 
+            />
+          </div>
+
+          <!-- Category Field -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Categoria</span>
+            </label>
+            <select formControlName="category" class="select select-bordered w-full">
+              <option value="">Selecione uma categoria</option>
+              <option value="education">Educação</option>
+              <option value="health">Saúde</option>
+              <option value="sports">Esportes</option>
+              <option value="arts">Artes</option>
+              <option value="technology">Tecnologia</option>
+            </select>
+          </div>
+
+          <!-- Image Upload -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Imagem da Campanha</span>
+            </label>
+            <div class="flex items-center gap-4">
+              <label class="btn btn-outline gap-2">
+                <lucide-icon name="Upload" class="h-5 w-5"></lucide-icon>
+                Escolher Arquivo
+                <input type="file" class="hidden" formControlName="image" />
+              </label>
+              <span class="text-sm text-gray-500">image.jpeg</span>
+            </div>
+          </div>
+
+          <!-- Description Field -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Descrição</span>
+            </label>
+            <textarea 
+              formControlName="description"
+              placeholder="Conte a história da sua campanha" 
+              class="textarea textarea-bordered h-24"
+            ></textarea>
+          </div>
+
+          <!-- Budget Field -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Orçamento</span>
+            </label>
+            <label class="input-group">
+              <span>R$</span>
+              <input 
+                type="number" 
+                formControlName="budget"
+                placeholder="0.00" 
+                class="input input-bordered w-full" 
+              />
+            </label>
+          </div>
+
+          <!-- Campaign Type -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Modalidade</span>
+            </label>
+            <div class="flex gap-4">
+              <label class="label cursor-pointer gap-2">
+                <input 
+                  type="radio" 
+                  formControlName="campaignType"
+                  value="continua" 
+                  class="radio" 
+                />
+                <span class="label-text">Contínua</span>
+              </label>
+              <label class="label cursor-pointer gap-2">
+                <input 
+                  type="radio" 
+                  formControlName="campaignType"
+                  value="flex" 
+                  class="radio" 
+                />
+                <span class="label-text">Flex</span>
+              </label>
+              <label class="label cursor-pointer gap-2">
+                <input 
+                  type="radio" 
+                  formControlName="campaignType"
+                  value="tudo-ou-nada" 
+                  class="radio" 
+                />
+                <span class="label-text">Tudo ou Nada</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- End Date -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Data Final</span>
+            </label>
+            <div class="flex items-center gap-2">
+              <lucide-icon name="Calendar" class="h-4 w-4 text-gray-500"></lucide-icon>
+              <select formControlName="endDate" class="select select-bordered w-full">
+                <option value="">Selecione o prazo</option>
+                <option value="1">1 semana</option>
+                <option value="2">2 semanas</option>
+                <option value="4">4 semanas</option>
+                <option value="8">8 semanas</option>
+                <option value="12">12 semanas</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Links Array -->
+          <div class="form-control" formArrayName="links">
+            <label class="label">
+              <span class="label-text font-medium">Links</span>
+              <button 
+                type="button" 
+                class="btn btn-ghost btn-sm btn-circle"
+                (click)="addLink()"
+              >
+                <lucide-icon name="PlusCircle" class="h-4 w-4"></lucide-icon>
+              </button>
+            </label>
+            
+            <div 
+              *ngFor="let link of links.controls; let i=index" 
+              class="flex items-center gap-2 mt-2"
+            >
+              <div class="input-group flex-1">
+                <span><Link class="h-4 w-4" /></span>
+                <input 
+                  type="url" 
+                  placeholder="https://" 
+                  class="input input-bordered w-full" 
+                />
+              </div>
+              <button 
+                type="button" 
+                class="btn btn-ghost btn-sm btn-circle"
+                (click)="removeLink(i)"
+              >
+                <lucide-icon name="MinusCircle" class="h-4 w-4"></lucide-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-full">
+            Criar Campanha
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

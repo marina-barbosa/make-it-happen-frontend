@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
-import { UserPageComponent } from './components/user-page/user-page.component';
-import { CreateCampaignPageComponent } from './components/create-campaign-page/create-campaign-page.component';
-import { CampaignPageComponent } from './components/campaign-page/campaign-page.component';
+import { AuthLayoutComponent } from './components/auth/auth-layout/auth-layout.component';
+import { UserPageComponent } from './components/user/user-page/user-page.component';
+import { CreateCampaignPageComponent } from './components/form-create/create-campaign-page/create-campaign-page.component';
+import { CampaignPageComponent } from './components/campaign/campaign-page/campaign-page.component';
 
 
 const routes: Routes = [
