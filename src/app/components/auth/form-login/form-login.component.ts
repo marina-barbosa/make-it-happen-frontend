@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-login',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./form-login.component.scss']
 })
 export class FormLoginComponent {
-
+  
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle } from 'lucide-angular';
+import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound } from 'lucide-angular';
 
 
 
@@ -57,7 +57,7 @@ import { CampaignTitleComponent } from './components/campaign/campaign-title/cam
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LucideAngularModule.pick({ Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle }),
+    LucideAngularModule.pick({ Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound }),
     CommonModule,
     FormsModule,
     ReactiveFormsModule

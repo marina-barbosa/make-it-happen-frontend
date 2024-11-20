@@ -1,10 +1,19 @@
-<div class="card">
-    <h2>Crie sua Conta</h2>
-    <div>
-        <img [src]="imagemUrl" alt="Descrição da Imagem">
-        <div>
-            <a routerLink="/login">Entrar</a>
-            <app-form-register></app-form-register>
-        </div>
+<div class="min-h-screen flex flex-col items-center justify-center">
+  <div class="hidden md:flex justify-center items-center gap-3 m-4">
+    <lucide-icon name="user-round"></lucide-icon>
+    <h2 class="font-bold">Signup new account</h2>
+  </div>
+  <div class="flex flex-col md:flex-row w-full max-w-4xl bg-base-100 rounded-lg shadow-xl overflow-hidden">
+    <!-- Left side image -->
+    <div class="md:w-1/2 relative hidden md:block">
+      <img src="../../../../assets/img-login-register.jpg" alt="Analytics Dashboard"
+        class="w-full h-full object-cover" />
     </div>
+
+    <!-- Right side form -->
+    <div class="md:w-1/2 p-8">
+      <app-form-register></app-form-register>
+    </div>
+
+  </div>
 </div>
