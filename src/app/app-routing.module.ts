@@ -5,6 +5,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { CreateCampaignPageComponent } from './components/create-campaign-page/create-campaign-page.component';
+import { CampaignPageComponent } from './components/campaign-page/campaign-page.component';
 
 
 const routes: Routes = [
@@ -15,6 +18,10 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'home', component: HomePageComponent },
+      { path: '', component: HomePageComponent },
+      { path: 'user', component: UserPageComponent },
+      { path: 'create', component: CreateCampaignPageComponent },
+      { path: 'campaign', component: CampaignPageComponent },
     ]
   },
   {
