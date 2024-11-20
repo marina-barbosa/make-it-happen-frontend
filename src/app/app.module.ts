@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound } from 'lucide-angular';
+import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus  } from 'lucide-angular';
 
 
 
@@ -29,6 +29,9 @@ import { UserPageComponent } from './components/user/user-page/user-page.compone
 import { CampaignPageComponent } from './components/campaign/campaign-page/campaign-page.component';
 import { CreateCampaignPageComponent } from './components/form-create/create-campaign-page/create-campaign-page.component';
 import { CampaignTitleComponent } from './components/campaign/campaign-title/campaign-title.component';
+import { BalanceComponent } from './components/user/balance/balance.component';
+import { PrivateDataFormComponent } from './components/user/private-data-form/private-data-form.component';
+import { PublicDataFormComponent } from './components/user/public-data-form/public-data-form.component';
 
 @NgModule({
   declarations: [
@@ -53,11 +56,14 @@ import { CampaignTitleComponent } from './components/campaign/campaign-title/cam
     CampaignPageComponent,
     CreateCampaignPageComponent,
     CampaignTitleComponent,
+    BalanceComponent,
+    PrivateDataFormComponent,
+    PublicDataFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LucideAngularModule.pick({ Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound }),
+    LucideAngularModule.pick({ Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus  }),
     CommonModule,
     FormsModule,
     ReactiveFormsModule

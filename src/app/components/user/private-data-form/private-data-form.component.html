@@ -1,0 +1,236 @@
+<div class="max-w-3xl mx-auto p-6">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="space-y-8">
+    <!-- Responsible Section -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title">
+          <i-lucide name="user-round" class="w-5 h-5"></i-lucide>
+          Responsável
+        </h2>
+        <p class="text-sm text-gray-500">
+          IMPORTANTE: Nome completo/Razão social e CPF/CNPJ não poderão ser modificados após serem salvos.
+        </p>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text">Nome completo</span>
+          </label>
+          <input type="text" class="input input-bordered" formControlName="fullName" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="form-control w-full">
+
+            <label class="label">
+              <span class="label-text">Tipo de Pessoa</span>
+            </label>
+            <select class="select select-bordered" formControlName="personType">
+              <option value="fisica">Pessoa Física</option>
+              <option value="juridica">Pessoa Jurídica</option>
+            </select>
+          </div>
+
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">CPF</span>
+            </label>
+            <input type="text" class="input input-bordered" formControlName="cpf" />
+          </div>
+
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Data de nascimento</span>
+            </label>
+            <input type="date" class="input input-bordered" formControlName="birthDate" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Address Section -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title">Endereço</h2>
+        <p class="text-sm text-gray-500">
+          Os dados de endereço serão utilizados para emissão de Nota Fiscal, caso aplicável.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <label class="label cursor-pointer">
+              <input type="radio" name="nationality" class="radio" formControlName="nationality" value="brasileiro" />
+              <span class="label-text ml-2">Brasileiro(a)</span>
+            </label>
+            <label class="label cursor-pointer">
+              <input type="radio" name="nationality" class="radio" formControlName="nationality"
+                value="international" />
+              <span class="label-text ml-2">International</span>
+            </label>
+          </div>
+
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Endereço (Rua, Avenida, etc)</span>
+            </label>
+            <input type="text" class="input input-bordered" formControlName="street" />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">CEP</span>
+              </label>
+              <input type="text" class="input input-bordered" formControlName="cep" />
+              <label class="label">
+                <a href="#" class="label-text-alt link link-primary">Não sei meu CEP</a>
+              </label>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">País / Country</span>
+              </label>
+              <select class="select select-bordered" formControlName="country">
+                <option value="brazil">Brazil</option>
+                <option value="other">Other</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Número</span>
+              </label>
+              <input type="text" class="input input-bordered" formControlName="number" />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Complemento</span>
+              </label>
+              <input type="text" class="input input-bordered" formControlName="complement" />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Bairro</span>
+              </label>
+              <input type="text" class="input input-bordered" formControlName="neighborhood" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Cidade</span>
+              </label>
+              <input type="text" class="input input-bordered" formControlName="city" />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Estado</span>
+              </label>
+              <select class="select select-bordered" formControlName="state">
+                <option value="SP">SP</option>
+                <option value="RJ">RJ</option>
+                <!-- Add other states -->
+              </select>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Telefone</span>
+              </label>
+              <input type="tel" class="input input-bordered" formControlName="phone" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Credit Cards Section -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title">
+          <i-lucide name="credit-card" class="w-5 h-5"></i-lucide>
+          Cartões de crédito
+        </h2>
+        <p class="text-sm text-gray-500">
+          Caso algum projeto que você tenha apoiado com Cartão de Crédito não seja bem-sucedido, nós efetuaremos o
+          reembolso automaticamente no cartão utilizado para efetuar o apoio.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Cartão</span>
+            </label>
+            <input type="text" class="input input-bordered" formControlName="cardNumber" />
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Operadora</span>
+            </label>
+            <input type="text" class="input input-bordered" formControlName="cardOperator" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Password Section -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title">
+          <i-lucide name="lock" class="w-5 h-5"></i-lucide>
+          Alterar Senha
+        </h2>
+        <p class="text-sm text-gray-500">
+          Para que a senha seja alterada você precisa confirmar a sua senha atual.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Senha atual</span>
+            </label>
+            <input type="password" class="input input-bordered" formControlName="currentPassword" />
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Nova senha</span>
+            </label>
+            <input type="password" class="input input-bordered" formControlName="newPassword" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deactivate Account Section -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title text-error">
+          <lucide-icon name="triangle-alert"></lucide-icon>
+          Desativar minha conta
+        </h2>
+        <p class="text-sm text-gray-500">
+          Todos os seus apoios serão convertidos em apoios anônimos, seus dados não serão mais visíveis, você sairá
+          automaticamente do sistema e sua conta será desativada permanentemente.
+        </p>
+
+        <button type="button" class="btn btn-error" (click)="deactivateAccount()">
+          Desativar minha conta
+        </button>
+      </div>
+    </div>
+
+    <!-- Save Button -->
+    <button type="submit" class="btn btn-primary btn-block">
+      Salvar
+    </button>
+  </form>
+</div>
