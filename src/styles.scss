@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --azul-claro: #5dade2;
+  --verde-menta: #58d68d;
+  --cinza-claro: #f2f3f4;
+  --cinza-napkin: #484848;
+  --cinza-catarse: #3f4752;
+  --azul-catarse: #3995db;
+  --amarelo-pastel: #f7dc6f;
+  --laranja-claro: #F19B4C;
+  --verde-agua: #1bf1ff;
+  --btn-text: #f9fafb;
+}
+
+
 * {
   font-family: 'Urbanist', sans-serif;
   transition: all 0.3s ease-in-out;
@@ -13,8 +27,8 @@
 
 /* Estilo para as opções do select */
 .custom-select option:hover {
-  background-color: #f97316; /* Laranja */
-  color: white; /* Cor do texto ao passar o mouse */
+  background-color: #f97316;
+  /* Laranja */
+  color: white;
+  /* Cor do texto ao passar o mouse */
 }
-
-

@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.tab-active {
+  border-bottom-color: theme('colors.primary');
+  color: theme('colors.primary');
+}
