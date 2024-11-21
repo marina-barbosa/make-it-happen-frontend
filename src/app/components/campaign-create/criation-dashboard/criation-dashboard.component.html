@@ -1,0 +1,185 @@
+<div class="drawer lg:drawer-open">
+  <input id="project-drawer" type="checkbox" class="drawer-toggle" />
+  
+  <!-- Page content -->
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar for mobile -->
+    <div class="w-full navbar bg-base-300 lg:hidden">
+      <div class="flex-none">
+        <label for="project-drawer" class="btn btn-square btn-ghost">
+          <i-lucide name="menu" class="h-6 w-6"></i-lucide>
+        </label>
+      </div>
+      <div class="flex-1 px-2 mx-2">Criar Projeto</div>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex flex-col p-4 md:p-8 space-y-6">
+      <div [ngSwitch]="currentSection">
+        <!-- Description Section -->
+        <div *ngSwitchCase="'descricao'" class="space-y-6">
+          <div class="text-center space-y-4">
+            <h1 class="text-3xl font-bold">Conte a história do seu projeto!</h1>
+            <p class="text-gray-600">
+              Pense bem na narrativa do projeto. É ela quem encantará as pessoas e trará apoiadores.
+              <br/>Um bom vídeo e descrição são diferenciais!
+            </p>
+          </div>
+
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <div class="alert alert-info">
+                <i-lucide name="info" class="w-5 h-5"></i-lucide>
+                <span>Saiba como <a href="#" class="link">criar uma descrição cativante!</a></span>
+              </div>
+
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium">Descrição do projeto</span>
+                </label>
+                <p class="text-sm text-gray-500 mb-4">
+                  Fale com paixão e clareza sobre o que será realizado. Esclareça possíveis dúvidas sobre como o dinheiro será utilizado, quem está por trás do projeto, como e quando o projeto será entregue.
+                </p>
+
+                <!-- Editor Toolbar -->
+                <div class="join mb-2">
+                  <button class="btn btn-sm join-item" *ngFor="let tool of editorTools" 
+                          [title]="tool.name"
+                          (click)="formatText(tool.action)">
+                    <i-lucide [name]="tool.icon" class="w-4 h-4"></i-lucide>
+                  </button>
+                </div>
+
+                <!-- <textarea 
+                  class="textarea textarea-bordered min-h-[400px]" 
+                  [formControl]="descriptionForm && descriptionForm.get('content')"
+                  placeholder="Descreva seu projeto aqui..."
+                ></textarea> -->
+                <textarea name="" id="" 
+                class="textarea textarea-bordered min-h-[400px]"
+                placeholder="Descreva seu projeto aqui..."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other sections placeholder -->
+        <div *ngSwitchDefault class="text-center py-10">
+          <h2 class="text-2xl font-semibold">Selecione uma seção para editar</h2>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex justify-between mt-6">
+        <button class="btn btn-ghost">
+          <i-lucide name="arrow-left" class="w-4 h-4 mr-2"></i-lucide>
+          Voltar
+        </button>
+        <button class="btn btn-success" (click)="saveContent()">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="drawer-side">
+    <label for="project-drawer" class="drawer-overlay"></label>
+    <div class="w-64 min-h-full bg-base-200 text-base-content">
+      <!-- Project thumbnail -->
+      <div class="p-4">
+        <div class="w-full aspect-square bg-base-300 rounded-lg flex items-center justify-center">
+          <i-lucide name="image" class="w-8 h-8 text-base-content/50"></i-lucide>
+        </div>
+        <div class="mt-2 text-sm font-medium text-center">teste</div>
+        <div class="text-xs text-center text-info">tudo ou nada</div>
+      </div>
+
+      <!-- Navigation -->
+      <ul class="menu menu-lg">
+        <li>
+          <a [class.active]="currentSection === 'campanha'">
+            <i-lucide name="bar-chart-2" class="w-5 h-5"></i-lucide>
+            Minha Campanha
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'pre-lancamento'">
+            <i-lucide name="rocket" class="w-5 h-5"></i-lucide>
+            Pré-Lançamento
+            <span class="badge badge-sm">Novo</span>
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'basico'">
+            <i-lucide name="file-text" class="w-5 h-5"></i-lucide>
+            Básico
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'financiamento'">
+            <i-lucide name="dollar-sign" class="w-5 h-5"></i-lucide>
+            Financiamento
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'descricao'" (click)="setSection('descricao')">
+            <i-lucide name="file-text" class="w-5 h-5"></i-lucide>
+            Descrição
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'video'">
+            <i-lucide name="video" class="w-5 h-5"></i-lucide>
+            Vídeo
+            <span class="text-xs text-base-content/50">(opcional)</span>
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'orcamento'">
+            <i-lucide name="dollar-sign" class="w-5 h-5"></i-lucide>
+            Orçamento
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'card'">
+            <i-lucide name="credit-card" class="w-5 h-5"></i-lucide>
+            Card do projeto
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'recompensas'">
+            <i-lucide name="gift" class="w-5 h-5"></i-lucide>
+            Recompensas
+            <span class="text-xs text-base-content/50">(opcional)</span>
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'integracoes'">
+            <i-lucide name="link-2" class="w-5 h-5"></i-lucide>
+            Integrações
+            <span class="text-xs text-base-content/50">(opcional)</span>
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'perfil'">
+            <i-lucide name="user" class="w-5 h-5"></i-lucide>
+            Perfil Público
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'privacidade'">
+            <i-lucide name="lock" class="w-5 h-5"></i-lucide>
+            Dados e Privacidade
+          </a>
+        </li>
+        <li>
+          <a [class.active]="currentSection === 'preview'">
+            <i-lucide name="eye" class="w-5 h-5"></i-lucide>
+            Preview
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

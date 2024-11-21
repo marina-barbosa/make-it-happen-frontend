@@ -1,0 +1,103 @@
+<div class="max-w-4xl mx-auto p-4 md:p-8">
+  <!-- Header -->
+  <h1 class="text-2xl md:text-3xl font-bold text-center mb-8">
+    Efetue o pagamento para<br />confirmar a contribuição
+  </h1>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- QR Code Section -->
+    <div class="bg-base-200 p-6 rounded-xl">
+      <div class="flex flex-col items-center gap-4">
+        <!-- QR Code -->
+        <!-- <img 
+          [src]="paymentInfo.qrCode" 
+          alt="QR Code para pagamento PIX"
+          class="w-64 h-64"
+        /> -->
+        <img src="../../../../assets/qrcode-example.png" alt="QR Code para pagamento PIX" class="w-64 h-64" />
+
+        <!-- Payment Details -->
+        <div class="w-full text-sm space-y-1">
+          <p class="font-medium">Ajuda para pagar um ano de faculdade</p>
+          <div class="grid grid-cols-2 gap-x-2 text-gray-600">
+            <span>ID Projeto:</span>
+            <span>{{paymentInfo.idVaquinha}}</span>
+
+            <span>ID Transação:</span>
+            <span>{{paymentInfo.idTransaction}}</span>
+
+            <span>Data:</span>
+            <span>{{paymentInfo.date}}</span>
+
+            <span>E-mail:</span>
+            <span>{{paymentInfo.email}}</span>
+
+            <span>Valor:</span>
+            <span class="font-medium">R$ {{paymentInfo.value.toFixed(2)}}</span>
+
+            <span>Método:</span>
+            <span>Pix</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions Section -->
+    <div class="space-y-8">
+      <!-- QR Code Instructions -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold">Pix com QR Code</h2>
+
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 flex items-center justify-center bg-base-200 rounded-full shrink-0">
+            <i-lucide name="smartphone" class="w-5 h-5"></i-lucide>
+          </div>
+          <div>
+            <p class="font-medium">1. No aplicativo do seu banco, escolha a opção "Ler QR Code" no menu Pix.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 flex items-center justify-center bg-base-200 rounded-full shrink-0">
+            <i-lucide name="qr-code" class="w-5 h-5"></i-lucide>
+          </div>
+          <div>
+            <p class="font-medium">2. Escaneie o QR Code. Confirme as informações e finalize</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy & Paste Instructions -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold">Pix Copia e Cola</h2>
+
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 flex items-center justify-center bg-base-200 rounded-full shrink-0">
+            <lucide-icon name="copy" class="w-5 h-5"></lucide-icon>
+          </div>
+          <div>
+            <p class="font-medium">
+              Clique no botão para copiar o código e escolha pagar via Pix Copia e Cola no aplicativo do seu banco.
+            </p>
+          </div>
+        </div>
+
+        <!-- Copy Button Section -->
+        <div class="flex gap-2">
+          <input type="text" [value]="paymentInfo.pixKey" readonly class="input input-bordered flex-1" />
+          <button class="btn btn-primary gap-2" (click)="copyPixCode()" [class.btn-success]="copied">
+            <i-lucide [name]="copied ? 'check' : 'copy'" class="w-5 h-5"></i-lucide>
+            {{copied ? 'Copiado!' : 'Copiar'}}
+          </button>
+        </div>
+
+        <!-- Success Message -->
+        <div class="text-right">
+          <a href="#" class="text-sm text-success hover:underline">
+            Tudo certo, já paguei!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

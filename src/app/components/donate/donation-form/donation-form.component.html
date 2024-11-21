@@ -1,0 +1,159 @@
+<div class="max-w-2xl mx-auto p-4 md:py-11">
+  <!-- Header -->
+  <div class="mb-6">
+    <h1 class="text-2xl font-bold mt-4">Ajude uma pobi."</h1>
+    <div class="text-gray-600">ID 5213556</div>
+  </div>
+
+  <form [formGroup]="donationForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <!-- Contribution Value -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Valor da contribuição</span>
+      </label>
+      <div class="join">
+        <span class="join-item flex items-center px-4 bg-base-200">R$</span>
+        <input type="number" formControlName="amount" class="input input-bordered join-item w-full" min="1"
+          step="0.01" />
+      </div>
+    </div>
+
+    <!-- Personal Information -->
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Nome completo</span>
+        </label>
+        <input type="text" formControlName="fullName" class="input input-bordered" />
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">CPF</span>
+        </label>
+        <input type="text" formControlName="cpf" class="input input-bordered" />
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">E-mail</span>
+        </label>
+        <input type="email" formControlName="email" class="input input-bordered" />
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Telefone Celular (WhatsApp)</span>
+        </label>
+        <input type="tel" formControlName="phone" class="input input-bordered" />
+      </div>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Escolha como doar</span>
+      </label>
+      <div class="flex gap-4">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" formControlName="paymentMethod" value="credit" class="radio radio-primary" />
+          <i-lucide name="credit-card" class="w-5 h-5"></i-lucide>
+          Cartão de crédito
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" formControlName="paymentMethod" value="pix" class="radio radio-primary" />
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M242.4 292.5C247.8 287.1 257.1 287.1 262.5 292.5L339.5 369.5C353.7 383.7 372.6 391.5 392.6 391.5H407.7L310.6 488.6C280.3 518.1 231.1 518.1 200.8 488.6L103.3 391.2H112.6C132.6 391.2 151.5 383.4 165.7 369.2L242.4 292.5zM262.5 218.9C256.1 224.4 247.9 224.5 242.4 218.9L165.7 142.2C151.5 127.1 132.6 120.2 112.6 120.2H103.3L200.7 22.8C231.1-7.6 280.3-7.6 310.6 22.8L407.8 119.9H392.6C372.6 119.9 353.7 127.7 339.5 141.9L262.5 218.9zM112.6 142.7C126.4 142.7 139.1 148.3 149.7 158.1L226.4 234.8C233.6 241.1 243 245.6 252.5 245.6C261.9 245.6 271.3 241.1 278.5 234.8L355.5 157.8C365.3 148.1 378.8 142.5 392.6 142.5H430.3L488.6 200.8C518.9 231.1 518.9 280.3 488.6 310.6L430.3 368.9H392.6C378.8 368.9 365.3 363.3 355.5 353.5L278.5 276.5C264.6 262.6 240.3 262.6 226.4 276.6L149.7 353.2C139.1 363 126.4 368.6 112.6 368.6H80.8L22.8 310.6C-7.6 280.3-7.6 231.1 22.8 200.8L80.8 142.7H112.6z"/></svg>
+          PIX
+        </label>
+      </div>
+    </div>
+
+    <!-- Credit Card Fields -->
+    <div *ngIf="donationForm.get('paymentMethod')?.value === 'credit'" class="space-y-4">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Número do cartão</span>
+        </label>
+        <input type="text" formControlName="cardNumber" class="input input-bordered"
+          placeholder="Insira o número do cartão" />
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Nome do titular</span>
+          </label>
+          <input type="text" formControlName="cardHolder" class="input input-bordered"
+            placeholder="Insira o nome do titular" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Validade</span>
+            </label>
+            <input type="text" formControlName="cardExpiry" class="input input-bordered" placeholder="MM/AA" />
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">CVV</span>
+            </label>
+            <input type="text" formControlName="cardCvv" class="input input-bordered"
+              placeholder="Insira o código CVV" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Total -->
+    <div class="mt-4 space-y-1 text-sm bg-base-200 p-4 rounded-lg">
+      <div class="flex justify-between">
+        <span>Contribuição:</span>
+        <span>R$ {{donationForm.get('amount')?.value || 0}}</span>
+      </div>
+
+      <div class="flex justify-between font-bold mt-2 pt-2 border-t">
+        <span>Total:</span>
+        <span>R$ {{calculateTotal()}}</span>
+      </div>
+    </div>
+
+
+    <!-- Newsletter -->
+    <div class="form-control">
+      <label class="label cursor-pointer justify-start gap-2">
+        <input type="checkbox" formControlName="newsletter" class="checkbox checkbox-primary" />
+        <span class="label-text">Quero receber atualizações desta vaquinha e de outras iniciativas.</span>
+      </label>
+      <label class="label">
+        <span class="label-text-alt text-gray-500">Respeitamos sua privacidade, enviando apenas e-mails e WhatsApp
+          importantes.</span>
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-success btn-block" [disabled]="!donationForm.valid || isSubmitting">
+      CONTRIBUIR
+    </button>
+
+    <!-- Security Seal -->
+    <div class="bg-base-200 p-4 rounded-lg flex items-center gap-4">
+      <div class="bg-green-500 text-yellow-400 p-1 rounded">
+        <lucide-icon name="shield-check" class="h-5 w-5"></lucide-icon>
+      </div>
+      <p class="text-sm">Garantimos uma experiência segura para todos os nossos doadores.</p>
+    </div>
+
+    <!-- Terms -->
+    <p class="text-xs text-gray-500">
+      Ao clicar no botão acima você declara que é maior de 18 anos, leu e está de acordo com os
+      <a href="#" class="text-primary hover:underline">Termos</a>,
+      <a href="#" class="text-primary hover:underline">Taxas</a> e
+      <a href="#" class="text-primary hover:underline">Prazos</a>
+    </p>
+  </form>
+</div>

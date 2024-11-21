@@ -6,8 +6,11 @@ import { HomePageComponent } from './components/home/home-page/home-page.compone
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthLayoutComponent } from './components/auth/auth-layout/auth-layout.component';
 import { UserPageComponent } from './components/user/user-page/user-page.component';
-import { CreateCampaignPageComponent } from './components/form-create/create-campaign-page/create-campaign-page.component';
+import { CreateCampaignPageComponent } from './components/campaign-create/create-campaign-page/create-campaign-page.component';
 import { CampaignPageComponent } from './components/campaign/campaign-page/campaign-page.component';
+import { CriationDashboardComponent } from './components/campaign-create/criation-dashboard/criation-dashboard.component';
+import { DonationFormComponent } from './components/donate/donation-form/donation-form.component';
+import { PixPaymentConfirmationComponent } from './components/donate/pix-payment-confirmation/pix-payment-confirmation.component';
 
 
 const routes: Routes = [
@@ -20,8 +23,9 @@ const routes: Routes = [
       { path: 'home', component: HomePageComponent },
       { path: '', component: HomePageComponent },
       { path: 'user', component: UserPageComponent },
-      { path: 'create', component: CreateCampaignPageComponent },
       { path: 'campaign', component: CampaignPageComponent },
+      { path: 'donation', component: DonationFormComponent },
+      { path: 'confirmation', component: PixPaymentConfirmationComponent },
     ]
   },
   {
@@ -32,6 +36,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
     ]
   },
+  { path: 'create', component: CriationDashboardComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus  } from 'lucide-angular';
+import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus, BarChart2, Rocket, FileText, Video,
+  Gift, Link2, User, Lock, Eye, Bold, Italic, List, 
+  AlignLeft, AlignCenter, AlignRight, Image, Quote, Minus, History, Bell, ShieldCheck, Copy, Check, Smartphone, QrCode } from 'lucide-angular';
 
 
 
@@ -24,14 +26,17 @@ import { ReceiptComponent } from './components/user/receipt/receipt.component';
 import { CampaignStatusComponent } from './components/campaign/campaign-status/campaign-status.component';
 import { CampaignDetailsComponent } from './components/campaign/campaign-details/campaign-details.component';
 import { CreatorProfileComponent } from './components/campaign/creator-profile/creator-profile.component';
-import { CampaignFormComponent } from './components/form-create/campaign-form/campaign-form.component';
+import { CampaignFormComponent } from './components/campaign-create/campaign-form/campaign-form.component';
 import { UserPageComponent } from './components/user/user-page/user-page.component';
 import { CampaignPageComponent } from './components/campaign/campaign-page/campaign-page.component';
-import { CreateCampaignPageComponent } from './components/form-create/create-campaign-page/create-campaign-page.component';
+import { CreateCampaignPageComponent } from './components/campaign-create/create-campaign-page/create-campaign-page.component';
 import { CampaignTitleComponent } from './components/campaign/campaign-title/campaign-title.component';
 import { BalanceComponent } from './components/user/balance/balance.component';
 import { PrivateDataFormComponent } from './components/user/private-data-form/private-data-form.component';
 import { PublicDataFormComponent } from './components/user/public-data-form/public-data-form.component';
+import { CriationDashboardComponent } from './components/campaign-create/criation-dashboard/criation-dashboard.component';
+import { PixPaymentConfirmationComponent } from './components/donate/pix-payment-confirmation/pix-payment-confirmation.component';
+import { DonationFormComponent } from './components/donate/donation-form/donation-form.component';
 
 @NgModule({
   declarations: [
@@ -59,11 +64,16 @@ import { PublicDataFormComponent } from './components/user/public-data-form/publ
     BalanceComponent,
     PrivateDataFormComponent,
     PublicDataFormComponent,
+    CriationDashboardComponent,
+    PixPaymentConfirmationComponent,
+    DonationFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LucideAngularModule.pick({ Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus  }),
+    LucideAngularModule.pick({ Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus, BarChart2, Rocket, FileText, Video,
+      Gift, Link2, User, Lock, Eye, Bold, Italic, List, 
+      AlignLeft, AlignCenter, AlignRight, Image, Quote, Minus, History, Bell, ShieldCheck, Copy, Check, Smartphone, QrCode }),
     CommonModule,
     FormsModule,
     ReactiveFormsModule
