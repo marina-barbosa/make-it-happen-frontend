@@ -1,11 +1,14 @@
-<form class="space-y-4">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
 
   <!-- Email input -->
   <div class="form-control">
     <label class="label">
-      <span class="label-text">Email</span>
+      <span class="label-text">Username</span>
     </label>
-    <input type="email" formControlName="email" placeholder="email" class="input input-bordered w-full" />
+    <input type="text" formControlName="username" placeholder="username" class="input input-bordered w-full" />
+    <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-red-500">
+      Username é obrigatório.
+    </div>
   </div>
 
   <!-- Password input -->
@@ -14,12 +17,20 @@
       <span class="label-text">Password</span>
     </label>
     <input type="password" formControlName="password" placeholder="password" class="input input-bordered w-full" />
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-red-500">
+      Senha inválida (mínimo 6 caracteres).
+    </div>
   </div>
 
   <!-- Submit button -->
-  <button type="submit" class="btn btn-primary w-full">
+  <button type="submit" class="btn btn-primary w-full" [disabled]="loginForm.invalid">
     Login
   </button>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="text-red-500">
+    {{ errorMessage }}
+  </div>
 
   <!-- Google login button -->
   <button type="button" class="btn btn-outline w-full gap-2">

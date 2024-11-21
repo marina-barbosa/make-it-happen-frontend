@@ -11,6 +11,7 @@ import { CampaignPageComponent } from './components/campaign/campaign-page/campa
 import { CriationDashboardComponent } from './components/campaign-create/criation-dashboard/criation-dashboard.component';
 import { DonationFormComponent } from './components/donate/donation-form/donation-form.component';
 import { PixPaymentConfirmationComponent } from './components/donate/pix-payment-confirmation/pix-payment-confirmation.component';
+import { authGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomePageComponent },
       { path: '', component: HomePageComponent },
-      { path: 'user', component: UserPageComponent },
+      { path: 'user', component: UserPageComponent, canActivate: [authGuard] },
       { path: 'campaign', component: CampaignPageComponent },
       { path: 'donation', component: DonationFormComponent },
       { path: 'confirmation', component: PixPaymentConfirmationComponent },

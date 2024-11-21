@@ -5,6 +5,7 @@
       <lucide-icon name="Search" color="" class="w-10 h-10"></lucide-icon>
       <app-search-input></app-search-input>
       <button routerLink="/user" class="btn btn-sm md:btn-md w-24 btn-accent">Login</button>
+      <lucide-icon name="door-open" (click)="logout()" class="cursor-pointer"></lucide-icon>
       <!-- <div class="avatar">
         <div class="mask mask-squircle w-16">
           <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
@@ -15,8 +16,9 @@
 
   <div class="md:hidden mx-auto w-full max-w-[1200px] border flex flex-col gap-3 justify-between items-center p-3 py-3">
     <div class="flex items-center gap-5">
-      <h1 class="text-xl font-audiowide">MAKE IT HAPPEN</h1>
-      <button class="btn btn-sm md:btn-md btn-accent">Login</button>
+      <h1 routerLink="/home" class="text-xl font-audiowide">MAKE IT HAPPEN</h1>
+      <button routerLink="/user" class="btn btn-sm md:btn-md btn-accent">Login</button>
+      <lucide-icon name="door-open" (click)="logout()" class="cursor-pointer"></lucide-icon>
       <!-- <div class="avatar">
         <div class="mask mask-squircle w-16">
           <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus, BarChart2, Rocket, FileText, Video,
-  Gift, Link2, User, Lock, Eye, Bold, Italic, List, 
-  AlignLeft, AlignCenter, AlignRight, Image, Quote, Minus, History, Bell, ShieldCheck, Copy, Check, Smartphone, QrCode } from 'lucide-angular';
+import {
+  LucideAngularModule, Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus, BarChart2, Rocket, FileText, Video,
+  Gift, Link2, User, Lock, Eye, Bold, Italic, List,
+  AlignLeft, AlignCenter, AlignRight, Image, Quote, Minus, History, Bell, ShieldCheck, Copy, Check, Smartphone, QrCode, DoorOpen 
+} from 'lucide-angular';
 
 
 
@@ -37,6 +39,9 @@ import { PublicDataFormComponent } from './components/user/public-data-form/publ
 import { CriationDashboardComponent } from './components/campaign-create/criation-dashboard/criation-dashboard.component';
 import { PixPaymentConfirmationComponent } from './components/donate/pix-payment-confirmation/pix-payment-confirmation.component';
 import { DonationFormComponent } from './components/donate/donation-form/donation-form.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -71,14 +76,23 @@ import { DonationFormComponent } from './components/donate/donation-form/donatio
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LucideAngularModule.pick({ Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus, BarChart2, Rocket, FileText, Video,
-      Gift, Link2, User, Lock, Eye, Bold, Italic, List, 
-      AlignLeft, AlignCenter, AlignRight, Image, Quote, Minus, History, Bell, ShieldCheck, Copy, Check, Smartphone, QrCode }),
+    LucideAngularModule.pick({
+      Search, Tag, MessageSquare, CreditCard, Receipt, Calendar, CheckCircle, Info, Globe, Phone, ThumbsUp, Heart, Share2, Upload, DollarSign, Link, PlusCircle, MinusCircle, UserRound, TriangleAlert, Plus, BarChart2, Rocket, FileText, Video,
+      Gift, Link2, User, Lock, Eye, Bold, Italic, List,
+      AlignLeft, AlignCenter, AlignRight, Image, Quote, Minus, History, Bell, ShieldCheck, Copy, Check, Smartphone, QrCode, DoorOpen 
+    }),
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
