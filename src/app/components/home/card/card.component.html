@@ -1,43 +1,30 @@
-
 <div routerLink="/campaign" class="card w-72 bg-base-100 cursor-pointer shadow-md mx-auto mb-8 border border-stone-300">
   <!-- Card Image -->
   <figure>
-    <img
-      src="../../../assets/default.png"
-      alt="default"
-      class="w-full h-48 object-cover"
-    />
+    <img src="../../../assets/default.png" alt="campaign image" class="w-full h-48 object-cover" />
   </figure>
-  
+
   <!-- Card Content -->
   <div class="card-body p-4">
-    <h2 class="card-title text-lg">Enigma do Medo</h2>
-    <p class="text-sm text-gray-600">
-      In tellus quam, vehicula vitae cursus nec, lacinia nec ipsum.
-    </p>
-    
-    <!-- Progress Section -->
+    <h2 class="card-title text-lg">{{ campaign.name | slice:0:27 }}...</h2>
+    <p class="text-sm text-gray-600">{{ campaign.description | slice:0:70 }}...</p>
+
     <div class="mt-4">
       <div class="w-full bg-gray-200 rounded-full h-2.5">
-        <div 
-          class="bg-[$verde-agua] h-2.5 rounded-full" 
-          style="width: 72%"
-        ></div>
+        <div class="bg-[#1CBEC9] h-2.5 rounded-full" [style.width.%]="progress"></div>
       </div>
-      
-      <!-- Stats Row -->
+
       <div class="flex justify-between mt-2 text-sm">
-        <span class="font-medium">72%</span>
-        <span class="font-medium">R$ 500,00</span>
-        <span class="text-gray-600">1 dia</span>
+        <span class="font-medium">{{ progress | number: '1.0-0' }}%</span>
+        <span class="font-medium">R$ {{ campaign.amountRaised }}</span>
+        <span class="text-gray-600">{{ remainingTime }}</span>
       </div>
     </div>
-    
-    <!-- Footer -->
+
     <div class="flex justify-between items-center mt-4">
       <div class="flex items-center gap-1">
         <lucide-icon name="tag"></lucide-icon>
-        <span class="text-sm text-gray-600">Romance</span>
+        <span class="text-sm text-gray-600">{{ campaign.mode }}</span>
       </div>
       <button class="btn btn-sm hover:bg-[#1CBEC9] border-black hover:text-white">
         Donate now

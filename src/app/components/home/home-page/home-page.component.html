@@ -28,16 +28,8 @@
         <!-- CARD GRID -->
         <div class="w-full mx-auto">
           <div id="card-grid" class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
+            <app-card *ngFor="let campaign of campaigns" [campaign]="campaign"></app-card>
+
           </div>
         </div>
 
