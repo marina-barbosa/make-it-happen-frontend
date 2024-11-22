@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CampaignService } from 'src/app/services/campaign.service';
+import { ToastService } from 'src/app/toast/toast.service';
 
 interface Campaign {
   campaignId: number;
@@ -23,11 +25,19 @@ interface Campaign {
 export class HomePageComponent {
   campaigns: Campaign[] = [];
 
-  constructor(private campaignService: CampaignService) { }
+  constructor(private campaignService: CampaignService, private router: Router, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.campaignService.getCampaigns().subscribe((data) => {
       this.campaigns = data;
     });
+  }
+  goToCampaignDetails(campaign: any) {
+    this.router.navigate(['/campaign', campaign.campaignId], {
+      state: { campaignDetails: campaign },
+    });
+  }
+  fireToast() {
+    this.toastService.showToast('Em desenvolvimento..', 'warn');
   }
 }

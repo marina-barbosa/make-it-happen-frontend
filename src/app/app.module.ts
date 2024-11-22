@@ -42,6 +42,7 @@ import { DonationFormComponent } from './components/donate/donation-form/donatio
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { HttpClientModule } from '@angular/common/http';
     CriationDashboardComponent,
     PixPaymentConfirmationComponent,
     DonationFormComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,4 +27,8 @@ export class CampaignService {
   getCampaigns(): Observable<Campaign[]> {
     return this.http.get<Campaign[]>(this.apiUrl);
   }
+  getCampaignDetails(campaignId: string): Observable<any> {
+    // Supondo que você tenha uma API que retorna os detalhes da campanha pelo ID
+    return this.http.get<any>(`http://localhost:5135/api/Campaign/${campaignId}`);
+  }
 }
