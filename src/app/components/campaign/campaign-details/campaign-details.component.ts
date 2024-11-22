@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-campaign-details',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./campaign-details.component.scss']
 })
 export class CampaignDetailsComponent {
-  // ThumbsUp, Heart, Share2
+  @Input() campaign!: any;
 }

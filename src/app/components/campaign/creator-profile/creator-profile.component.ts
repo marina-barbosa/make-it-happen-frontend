@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-creator-profile',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./creator-profile.component.scss']
 })
 export class CreatorProfileComponent {
-  // Info, Twitter, Facebook, Instagram, Globe, Phone
+  @Input() creator!: any;
 }

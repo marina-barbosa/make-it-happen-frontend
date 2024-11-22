@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'home', component: HomePageComponent },
       { path: '', component: HomePageComponent },
       { path: 'user', component: UserPageComponent, canActivate: [authGuard] },
-      { path: 'campaign', component: CampaignPageComponent },
+      { path: 'campaign/:id', component: CampaignPageComponent },
       { path: 'donation', component: DonationFormComponent },
       { path: 'confirmation', component: PixPaymentConfirmationComponent },
     ]

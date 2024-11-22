@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { CampaignService } from 'src/app/services/campaign.service';
 
 interface Campaign {
   campaignId: number;
@@ -21,15 +23,19 @@ interface Campaign {
 })
 export class CardComponent {
   @Input() campaign!: Campaign;
+  @Input() campaignId!: number;
+
+  constructor(private campaignService: CampaignService, private router: Router) { }
 
   get progress(): number {
-    return (this.campaign.amountRaised / this.campaign.goal) * 100;
+    return this.campaignService.getProgress(this.campaign);
   }
 
   get remainingTime(): string {
-    const deadline = new Date(this.campaign.deadline);
-    const timeRemaining = deadline.getTime() - new Date().getTime();
-    const daysRemaining = Math.ceil(timeRemaining / (1000 * 3600 * 24));
-    return `${daysRemaining} dia(s) restante(s)`;
+    return this.campaignService.getRemainingTime(this.campaign);
+  }
+
+  navigateToCampaign(id: number) {
+    this.router.navigate(['/campaign', id]);
   }
 }

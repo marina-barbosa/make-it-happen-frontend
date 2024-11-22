@@ -2,18 +2,18 @@
   <!-- Total Amount -->
   <div class="mb-4">
     <div class="text-sm text-gray-600 font-medium">TOTAL ARRECADADO</div>
-    <div class="text-2xl font-bold">R$ 10.635</div>
+    <div class="text-2xl font-bold">R$ {{ campaign.amountRaised | number:'1.0-0' }}</div>
   </div>
 
   <!-- Progress Bar -->
   <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
-    <div class="bg-cyan-400 h-2 rounded-full" style="width: 72%"></div>
+    <div class="bg-cyan-400 h-2 rounded-full" [style.width.%]="progress"></div>
   </div>
 
   <!-- Progress Stats -->
   <div class="flex justify-between text-sm text-gray-600 mb-4">
-    <span>72%</span>
-    <span>44 dias restantes</span>
+    <span>{{ progress | number: '1.0-0' }}%</span>
+    <span>{{ remainingTime }}</span>
   </div>
 
   <!-- Campaign Goal -->
@@ -22,8 +22,8 @@
       <img class="object-cover h-20" src="../../../assets/icon-tudo-ou-nada.png" alt="">
     </div>
     <div>
-      <div class="font-medium">META R$ 30.000</div>
-      <div class="text-sm text-gray-600">Campanha Tudo ou Nada</div>
+      <div class="font-medium">META R$ {{ campaign.goal | number:'1.0-0' }}</div>
+      <div class="text-sm text-gray-600">Campanha {{ campaign.mode }}</div>
     </div>
   </div>
 

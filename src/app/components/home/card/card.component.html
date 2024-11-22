@@ -1,4 +1,4 @@
-<div routerLink="/campaign" class="card w-72 bg-base-100 cursor-pointer shadow-md mx-auto mb-8 border border-stone-300">
+<div class="card w-72 bg-base-100 shadow-md mx-auto mb-8 border border-stone-300">
   <!-- Card Image -->
   <figure>
     <img src="../../../assets/default.png" alt="campaign image" class="w-full h-48 object-cover" />
@@ -6,8 +6,10 @@
 
   <!-- Card Content -->
   <div class="card-body p-4">
-    <h2 class="card-title text-lg">{{ campaign.name | slice:0:25 }}...</h2>
-    <p class="text-sm text-gray-600">{{ campaign.description | slice:0:70 }}...</p>
+    <div (click)="navigateToCampaign(campaign.campaignId)" class="cursor-pointer">
+      <h2 class="card-title text-lg">{{ campaign.name | slice:0:25 }}...</h2>
+      <p class="text-sm text-gray-600">{{ campaign.description | slice:0:70 }}...</p>
+    </div>
 
     <div class="mt-4">
       <div class="w-full bg-gray-200 rounded-full h-2.5">
