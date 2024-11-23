@@ -23,7 +23,8 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomePageComponent },
       { path: '', component: HomePageComponent },
-      { path: 'user', component: UserPageComponent, canActivate: [authGuard] },
+      // { path: 'user', component: UserPageComponent, canActivate: [authGuard] },
+      { path: 'user', component: UserPageComponent },
       { path: 'campaign/:id', component: CampaignPageComponent },
       { path: 'donation', component: DonationFormComponent },
       { path: 'confirmation', component: PixPaymentConfirmationComponent },
